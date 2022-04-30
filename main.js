@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-const PropertiesReader = require('properties-reader');
-require('dotenv').config();
 const mongoose = require('./database/mongoose');
+const Levels = require('discord-xp');
 const fs = require('fs');
+require('dotenv').config();
 
-
+Levels.setURL(`mongodb+srv://TestBot:${process.env.dbPassword}@discodbot.mcj08.mongodb.net/BotDatabase?retryWrites=true&w=majority`);
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 client.prefix = "-";
 client.commands = new Discord.Collection();

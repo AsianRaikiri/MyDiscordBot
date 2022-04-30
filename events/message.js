@@ -1,11 +1,12 @@
 module.exports = {
     name: 'message', 
-    execute(message, client){
+    async execute(message, client){
         if(message.author.bot){return;}
         if(message.channel.type == 'dm'){return;}
+
         if(!message.content.startsWith(client.prefix)){return;}
 
-        const args = message.content.slice(client.prefix.length).trim().split(/ + /);
+        const args = message.content.slice(client.prefix.length).trim().split(/ +/);
         const commandName = args.shift().toLowerCase();
 
         if(!client.commands.has(commandName)){return;}
