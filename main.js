@@ -1,12 +1,32 @@
 const Discord = require('discord.js');
 const PropertiesReader = require('properties-reader');
-const properties = PropertiesReader('./loginInformation.properties');
+require('dotenv').config();
+const mongoose = require('./database/mongoose');
+const fs = require('fs');
 
 
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
+client.prefix = "-";
+client.commands = new Discord.Collection();
 
-client.once('ready', () => {
-    console.log('The real one is online!');
-})
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
-client.login(properties.get('user-Token'));
+
+for(const file of commandFiles) {
+    const command = require('./commands/' + file);
+    client.commands.set(command.name, command);
+}
+for(const file of eventFiles) {
+    const event = require('./events/' + file);
+    if(event.once) {
+        client.once(event.name, (...args) => event.execute(...args, client));
+    }else{
+        client.on(event.name, (...args) => event.execute(...args, client));
+    }
+}
+
+
+
+mongoose.init();
+client.login(process.env.userToken);
