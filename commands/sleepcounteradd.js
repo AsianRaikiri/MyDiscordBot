@@ -20,7 +20,7 @@ module.exports = {
         }else{
             try{
                 await Levels.appendLevel(mentionedMember.user.id, message.guild.id, 1);
-                message.channel.send(`${mentionedMember.user.username} ist bereits zum ${levelUser.level + 1}. Mal eingeschlafen`)
+                await message.channel.send(`${mentionedMember.user.username} ist bereits zum ${levelUser.level}. Mal eingeschlafen`);
             }catch(err){
                 console.log(err);
         }}
