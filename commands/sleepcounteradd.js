@@ -17,12 +17,12 @@ module.exports = {
             }catch(err){
                 console.log(err);
             }
-        }
-        try{
-            await Levels.appendLevel(mentionedMember.user.id, message.guild.id, 1);
-            message.channel.send(`${mentionedMember.user.username} ist bereits zum ${levelUser.level + 1}. Mal eingeschlafen`)
-        }catch(err){
-            console.log(err);
-        }
+        }else{
+            try{
+                await Levels.appendLevel(mentionedMember.user.id, message.guild.id, 1);
+                message.channel.send(`${mentionedMember.user.username} ist bereits zum ${levelUser.level + 1}. Mal eingeschlafen`)
+            }catch(err){
+                console.log(err);
+        }}
     },
 };
