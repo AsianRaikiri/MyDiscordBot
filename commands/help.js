@@ -1,4 +1,4 @@
-    const Discord = require('discord.js');
+const Discord = require('discord.js');
 
 module.exports = {
     name:'help',
@@ -13,6 +13,8 @@ module.exports = {
         .addField("-sleepstats (optional){person}", '`just returns the times that person has fallen asleep already. \nIf you don\'t specify a person, it returns our stats.`')
         .addField("-sleepleaderboard", '`It returns the ranking of the 3 people who have fallen asleep the most in class, nothing to be proud of honestly.`')
         .addField("-sleepdeleteuser {person}", '`If you grow weary of a person, this is the way to delete that person permanently.`')
+        .addField("-currentsemester", '`Gives you the current Semester, or at least the semester, the sleepCounter is currently keeping track of.`')
+        .addField("-changesemester", '`Changes the current semester to a different one. Please mind the Regex: (WS|SS)2[2-9]`')
         message.channel.send({embeds: [botInfo]});
     },
 };

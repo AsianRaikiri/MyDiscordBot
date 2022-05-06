@@ -1,3 +1,5 @@
+const Levels = require('discord-xp');
+
 module.exports = {
     name: 'ready',
     once: true, 

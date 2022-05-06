@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 module.exports = {
-    init: () => {
+    init: (client) => {
         const dbOptions = {
             useNewUrlParser: true, 
             useUnifiedTopology: true,
@@ -11,7 +11,7 @@ module.exports = {
             family: 4
         }
 
-        mongoose.connect(`mongodb+srv://TestBot:${process.env.dbPassword}@discodbot.mcj08.mongodb.net/BotDatabase?retryWrites=true&w=majority`, dbOptions);
+        mongoose.connect(`mongodb+srv://TestBot:${process.env.dbPassword}@discodbot.mcj08.mongodb.net/SleepDatabase?retryWrites=true&w=majority`, dbOptions);
         mongoose.Promise = global.Promise;
 
         mongoose.connection.on('connection', () => {

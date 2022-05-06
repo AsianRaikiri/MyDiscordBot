@@ -4,14 +4,14 @@ const Levels = require('discord-xp');
 const fs = require('fs');
 require('dotenv').config();
 
-Levels.setURL(`mongodb+srv://TestBot:${process.env.dbPassword}@discodbot.mcj08.mongodb.net/BotDatabase?retryWrites=true&w=majority`);
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 client.prefix = "-";
 client.commands = new Discord.Collection();
+client.currentSemester = "SS22";
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-
+Levels.setURL(`mongodb+srv://TestBot:${process.env.dbPassword}@discodbot.mcj08.mongodb.net/SleepDatabase?retryWrites=true&w=majority`);
 
 for(const file of commandFiles) {
     const command = require('./commands/' + file);
@@ -26,7 +26,5 @@ for(const file of eventFiles) {
     }
 }
 
-
-
-mongoose.init();
+mongoose.init(client);
 client.login(process.env.userToken);
