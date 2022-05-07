@@ -13,7 +13,7 @@ module.exports = {
         }else{
             amount = args[1];
         }
-        if(amount < 1){
+        if(!(amount > 0)){
             return message.channel.send('This is not a valid number to increase the sleepCounter by.');
         }
         const levelUser = await Levels.fetch(mentionedMember.user.id, message.guild.id+client.currentSemester, false);
