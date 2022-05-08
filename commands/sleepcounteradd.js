@@ -7,7 +7,6 @@ module.exports = {
         let amount;
         let mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if(!mentionedMember){return message.channel.send("Which person fell asleep in university?");}
-        console.log(args[1])
         if(args[1] == undefined){
             amount = 1;
         }else{
