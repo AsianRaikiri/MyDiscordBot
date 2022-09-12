@@ -50,6 +50,5 @@ module.exports = {
             .catch(err => console.error(err));
             })
         .catch(err => console.error(err));
-        //TODO: The name of the cards and their due date has to be implemented in a response text. 
     },
 };
