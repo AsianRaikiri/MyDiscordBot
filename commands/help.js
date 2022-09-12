@@ -14,6 +14,7 @@ module.exports = {
         .addField("-sleepstats (optional){person}", '`Just returns the times that person has fallen asleep already. \nIf you don\'t specify a person, it returns our stats.`')
         .addField("-sleepleaderboard", '`It returns the ranking of the 3 people who have fallen asleep the most in class, nothing to be proud of honestly.`')
         .addField("-sleepdeleteuser {person}", '`If you grow weary of a person, this is the way to delete that person permanently.`')
+        .addField("-assignments", '`This is for all those lazy people who can\'t even open trello \nto look up what is due in the next two weeks. `')
         .addField("-currentsemester", '`Gives you the current Semester, or at least the semester, the sleepCounter is currently keeping track of.`')
         .addField("-changesemester", '`Changes the current semester to a different one. \nPlease mind the Regex: (WS|SS)2[2-9]`')
         message.channel.send({embeds: [botInfo]});

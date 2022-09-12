@@ -1,3 +1,5 @@
 # Default ignored files
 loginInformation.properties
 .env
+node_modules/
+.vscode/
