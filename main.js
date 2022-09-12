@@ -27,4 +27,4 @@ for(const file of eventFiles) {
 }
 
 mongoose.init(client);
-client.login(process.env.userTokenTest);
+client.login(process.env.userToken);
