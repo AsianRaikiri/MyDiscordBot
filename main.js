@@ -7,7 +7,7 @@ require('dotenv').config();
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
 client.prefix = "-";
 client.commands = new Discord.Collection();
-client.currentSemester = "WS22";
+client.currentSemester = "SS24";
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -27,4 +27,4 @@ for(const file of eventFiles) {
 }
 
 mongoose.init(client);
-client.login(process.env.userToken);
+client.login(process.env.userTokenTest);
